@@ -6,7 +6,7 @@ const allUrls = [`https://raw.githubusercontent.com/bbc/news-coding-test-dataset
     `https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json`,
     `https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json`];
 
-    let nextArticleButton = document.getElementById("next-article");
+let nextArticleButton = document.getElementById("next-article");
 const prevArticleButton = document.getElementById("prev-article");
 
 let pageCounter = 0;
@@ -24,37 +24,40 @@ window.onload = function () {
         .then(data => {
             makeContent(data);
         })
-        .catch(error => console.log(error))
+        .catch(console.log)
+
+    setInterval(() => {
+        if (pageCounter === 4) {
+            nextArticleButton.innerHTML = "Go to ratings";
+        }
+        else {
+            nextArticleButton.innerHTML = "Next article";
+        }
+    }, 500);
 
     prevArticleButton.addEventListener("click", function () {
         if (pageCounter === 0) {
             alert('This is the first page, cannot go back');
             return;
         }
-        if (pageCounter < (allUrls.length - 1)) {
+        if (pageCounter < (allUrls.length)) {
             pageCounter--;
             loadPage(pageCounter);
         }
     });
 
     nextArticleButton.addEventListener("click", function () {
-        if (pageCounter === 3) {
-            pageCounter++;
-            loadPage(pageCounter);
-            nextArticleButton.innerHTML = "Go to ratings";
+        if(pageCounter === 4) {
             loadRatingPage();
         }
         if (pageCounter < (allUrls.length - 1)) {
             pageCounter++;
             loadPage(pageCounter);
-            console.log(pageCounter);
         }
     });
 
     function loadRatingPage() {
-        nextArticleButton.addEventListener("click", function () {
-            window.location.href = "./ratingsPage.html";
-        });
+        window.location.href = "./ratingsPage.html";
     }
 
     function loadPage(pageCounter) {
