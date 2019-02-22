@@ -10,3 +10,20 @@ let nextArticleButton = document.getElementById("next-article");
 let pageCounter = 0;
 let para;
 let heading;
+
+window.onload = function () {
+    let url = allUrls[pageCounter];
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            makeContent(data);
+        })
+        .catch(error => console.log(error))
+
+        function makeContent(data) {
+
+        }
+}
