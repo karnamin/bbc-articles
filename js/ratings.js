@@ -22,7 +22,6 @@ for (var i = 0; i < allUrls.length; i++) {
         .then(data => {
             allTitles.push(data.title);
             makeTable(data);
-            getRatings();
         })
         .catch(error => console.log(error))
 }

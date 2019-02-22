@@ -6,7 +6,7 @@ const allUrls = [`https://raw.githubusercontent.com/bbc/news-coding-test-dataset
     `https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-4.json`,
     `https://raw.githubusercontent.com/bbc/news-coding-test-dataset/master/data/article-5.json`];
 
-let nextArticleButton = document.getElementById("next-article");
+    let nextArticleButton = document.getElementById("next-article");
 const prevArticleButton = document.getElementById("prev-article");
 
 let pageCounter = 0;
