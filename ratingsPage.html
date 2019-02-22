@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,38 @@
     <link rel="stylesheet" href="css/ratingsStyles.css">
     <title>BBC News Articles Ratings</title>
 </head>
+
 <body>
-    
+    <div class="container mt-5">
+        <form method="post" action="results.html">
+            <div class="form-group">
+                <select id="article-select" class="form-control custom-select">
+                    <option value="0" disabled selected>Select Article</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1-5"
+                    disabled>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Article</th>
+                        <th>Ratings</th>
+                    </tr>
+                </thead>
+                <tbody class="ratingsBody">
+
+                </tbody>
+            </table>
+            <div class="col text-center mt-5">
+                <button class="btn btn-primary btn-lg" type="submit" value="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 
     <script src="js/ratings.js"></script>
 </body>
+
 </html>
