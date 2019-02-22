@@ -22,7 +22,6 @@ window.onload = function () {
             return response.json();
         })
         .then(data => {
-            console.log(data);
             makeContent(data);
         })
         .catch(error => console.log(error))
@@ -66,7 +65,6 @@ window.onload = function () {
 
             })
             .then(data => {
-                console.log(data);
                 makeContent(data);
             })
             .catch(error => console.log(error))
@@ -97,5 +95,6 @@ window.onload = function () {
                 mainBody.innerHTML += list;
             }
         }
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 }
