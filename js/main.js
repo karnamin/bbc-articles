@@ -24,6 +24,40 @@ window.onload = function () {
         })
         .catch(error => console.log(error))
 
+        nextArticleButton.addEventListener("click", function () {
+            if (pageCounter === 3) {
+                pageCounter++;
+                loadPage(pageCounter);
+                nextArticleButton.innerHTML = "Go to ratings";
+                loadRatingPage();
+            }
+            if (pageCounter < (allUrls.length - 1)) {
+                pageCounter++;
+                loadPage(pageCounter);
+                console.log(pageCounter);
+            }
+        });
+    
+        function loadRatingPage() {
+            nextArticleButton.addEventListener("click", function () {
+                window.location.href = "./ratingsPage.html";
+            });
+        }
+    
+        function loadPage(pageCounter) {
+            url = allUrls[pageCounter];
+            fetch(url)
+                .then(response => {
+                    return response.json();
+    
+                })
+                .then(data => {
+                    console.log(data);
+                    makeContent(data);
+                })
+                .catch(error => console.log(error))
+        }
+
     function makeContent(data) {
         mainBody.innerHTML = "";
         title.textContent = data.title;
