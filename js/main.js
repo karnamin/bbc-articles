@@ -10,6 +10,7 @@ let nextArticleButton = document.getElementById("next-article");
 let pageCounter = 0;
 let para;
 let heading;
+let list;
 
 window.onload = function () {
     let url = allUrls[pageCounter];
@@ -41,6 +42,12 @@ window.onload = function () {
                 mainBody.appendChild(img);
             }
             else if(data.body[key].type === 'list') {
+                let listItems = "";
+                for (var item = 0; item < data.body[key].model.items.length; item++) {
+                    listItems += "<li>" + data.body[key].model.items[item] + "</li>"
+                }
+                list = "<ul>" + listItems + "</ul>";
+                mainBody.innerHTML += list;
             }
         }
     }
