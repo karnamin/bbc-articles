@@ -71,9 +71,9 @@ window.onload = function () {
                 mainBody.innerHTML += para;
             }
             else if (data.body[key].type === 'image') {
-                image = `<img src="${data.body[i].model.url}" alt="${data.body[i].model.altText}" 
-                height="${data.body[i].model.height}" width="${data.body[i].model.width}">`;
-                mainBody += image;
+                image = `<img src="${data.body[key].model.url}" alt="${data.body[key].model.altText}" 
+                height="${data.body[key].model.height}" width="${data.body[key].model.width}">`;
+                mainBody.innerHTML += image;
             }
             else if(data.body[key].type === 'list') {
                 let listItems = "";
