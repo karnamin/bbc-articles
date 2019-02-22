@@ -1,0 +1,19 @@
+.main-body {
+    font-size: 1.3rem;
+}
+
+p {
+    margin: 3%;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#next-article {
+    margin-bottom: 2%;
+}
