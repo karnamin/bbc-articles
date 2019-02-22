@@ -8,8 +8,9 @@ const allUrls = [`https://raw.githubusercontent.com/bbc/news-coding-test-dataset
 
 let nextArticleButton = document.getElementById("next-article");
 let pageCounter = 0;
-let para;
 let heading;
+let para;
+let image;
 let list;
 
 window.onload = function () {
@@ -70,10 +71,9 @@ window.onload = function () {
                 mainBody.innerHTML += para;
             }
             else if (data.body[key].type === 'image') {
-                console.log(data.body[key].model.url);
-                let img = new Image();
-                img.src = data.body[key].model.url;
-                mainBody.appendChild(img);
+                image = `<img src="${data.body[i].model.url}" alt="${data.body[i].model.altText}" 
+                height="${data.body[i].model.height}" width="${data.body[i].model.width}">`;
+                mainBody += image;
             }
             else if(data.body[key].type === 'list') {
                 let listItems = "";
