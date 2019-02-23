@@ -76,7 +76,8 @@ window.onload = function () {
     function makeContent(data) {
         mainBody.innerHTML = "";
         title.textContent = data.title;
-        heading = `<h4>${data.body[0].model.text}</h4>`;
+        heading = `<h4 class="heading">${data.body[0].model.text}</h4>
+                    <hr />`;
         mainBody.innerHTML += heading;
 
         for (var key in data.body) {
